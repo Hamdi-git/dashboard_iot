@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="img">
+    <img src="assets/SagemCom.png">
+  </div>
+  <div class="login-content">
+    <form (ngSubmit)="login()">
+      <h2 class="title">Login</h2>
+      <div class="input-div one" [ngClass]="{ 'success': successMessage, 'error': errorMessage }">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+
+          <input
+            type="text"
+            class="form-control"
+            name="matricule"
+            [(ngModel)]="matricule"
+            placeholder="Matricule"
+            required
+          />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+      </div>
+      <p class="error-message" style="color: red">{{ errorMessage }}</p>
+      <p class="success-message" style="color: green">{{ successMessage }}</p>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+</div>

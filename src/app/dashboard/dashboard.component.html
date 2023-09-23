@@ -1,0 +1,291 @@
+
+<div class="dark-edition">
+	<div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="poly.jpg">
+      <div class="logo" style="display: flex;
+      justify-content: center;
+      align-items: center;">
+
+           <img src="../../assets/logosagem.png" style="width: 150px;">
+
+      </div>
+       <!-- statusbar  -->
+                        <div id="sbar" class="p-1 mx-3 my-2" title="Device is Offline"></div>
+                        <!-- status bar -->
+
+                        <div id="online" class="online  mx-3" title="Device is Online">
+                         <div class="load-barx">
+                            <div class="barx"></div>
+                            <div class="barx"></div>
+                            <div class="barx"></div>
+                            <div class="barx"></div>
+                         </div>
+                       </div>
+
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item" [class.active]="dashbord" (click)="activedashbord()">
+            <a class="nav-link" >
+              <i class="fa fa-th"></i>
+              <p>Dashboard</p>
+            </a>
+         </li>
+
+          <li class="nav-item" [class.active]="datalogs" (click)="activedatalogs()">
+            <a class="nav-link">
+              <i class="fa fa-list"></i>
+              <p>Data Logs</p>
+            </a>
+         </li>
+
+          <li class="nav-item" [class.active]="about" (click)="activeabout()">
+            <a class="nav-link" >
+              <i class="fa fa-bars"></i>
+              <p>circuit breaker control</p>
+            </a>
+         </li>
+        </ul>
+
+        <ul class="nav logout" >
+          <li class="nav-item">
+            <div class="nav-div-logout">
+            <a class="nav-link" href="/">
+              <i class="fa fa-sign-out"></i>
+              <p>Logout</p>
+            </a>
+          </div>
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <p class="text-info"><i class="fa fa-circle"></i> Welcome Rawdha</p>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid" *ngIf="dashbord" id="dashboard">
+          <div class="row">
+
+
+
+             <!-- Humidity -->
+            <div class="col-xl-4 col-lg-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-info">
+                  <span class="text-heading">Sensor Humidity Reading</span>
+                </div>
+                <div class="card-body">
+
+                	<h1 class="value my-3"><span id="hum">15</span> %</h1>
+
+                  <h4 class="card-title">Humidity</h4>
+                  <p class="card-category">
+                  	  Amount of atmospheric moisture
+                  </p>
+                </div>
+                <div class="card-footer">
+                    <span class="text-muted"><i class="fa fa-circle text-info"></i> Updates Every 60s</span>
+                </div>
+              </div>
+            </div>
+
+             <!-- Temperature -->
+             <div class="col-xl-4 col-lg-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-danger">
+                  <span class="text-heading">Sensor Temperature Reading</span>
+                </div>
+                <div class="card-body">
+
+                	<h1 class="value my-3"><span id="temp">42</span> <span style="text-transform: lowercase;">℃</span></h1>
+
+                  <h4 class="card-title">Temperature</h4>
+                  <p class="card-category">
+                  	  Amount of Heat
+                  </p>
+                </div>
+                <div class="card-footer">
+                    <span class="text-muted"><i class="fa fa-circle text-danger"></i> Updates Every 60s</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-danger">
+                  <span class="text-heading">Sensor Temperature Reading</span>
+                </div>
+                <div class="card-body">
+
+                	<h1 class="value my-3"><span id="temp">220</span> <span style="text-transform: lowercase;">V</span></h1>
+
+                  <h4 class="card-title">Mesure Tension</h4>
+                  <p class="card-category">
+                    Voltage value
+                  </p>
+                </div>
+                <div class="card-footer">
+                    <span class="text-muted"><i class="fa fa-circle text-danger"></i> Updates Every 60s</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-primary">
+                  <span class="text-heading">Flame Sensor</span>
+                </div>
+                <div class="card-body">
+
+                	<h1 class="value my-3 text-muted" id="fs">🔥0</h1>
+
+                  <h4 class="card-title">Flame</h4>
+                  <p class="card-category">
+                  	  Senses presence of fire using light
+                  </p>
+                </div>
+                <div class="card-footer">
+                    <span class="text-muted"><i class="fa fa-circle text-primary"></i> Updates Every 60s</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+      <div id="datalogs" *ngIf="datalogs" >
+        <div class="content container-fluid">
+           <p class="text-info"><i class="fa fa-circle"></i> The Following tables are the summary of data logged for each sensor.</p>
+
+              <!-- table for database -->
+                    <div class="card mb-3">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Humidity & And Temperature Sensor</h4>
+                  <p class="card-category"> DHT22 Sensor</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-custom">
+                      <thead class="text-primary">
+                        <th>Log No.</th>
+                        <th>Humidity</th>
+                        <th>Temperature</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                      </thead>
+                      <tbody id="th" >
+                        <tr *ngFor="let reading of dht22">
+                          <td>{{ reading.id }}</td>
+                          <td>{{ reading.humidity }}</td>
+                          <td>{{ reading.temperature }}</td>
+                          <td>{{ reading.date }}</td>
+                          <td>{{ reading.time }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+                <div class="card mb-3">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Circuit breaker</h4>
+                  <p class="card-category">Circuit breaker</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-custom">
+                      <thead class="text-primary">
+                        <th>Log No.</th>
+                        <th>Circuit breaker</th>
+                        <th>Etat</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                      </thead>
+                      <tbody id="th" >
+                        <tr *ngFor="let reading of circuit">
+                          <td>{{ reading.id }}</td>
+                          <td>{{ reading.name }}</td>
+                          <td>{{ reading.etat }}</td>
+                          <td>{{ reading.date }}</td>
+                          <td>{{ reading.time }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <!-- table for db -->
+              <div id="about" *ngIf="about">
+                <div class="content container-fluid">
+                  <p class="text-info"><i class="fa fa-circle"></i> Circuit breaker control panel for all parks.</p>
+                  <div class="d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-12">
+                      <div class="card card-chart">
+                        <div class="card-header card-header-primary">
+                          <span class="text-heading">Button for Disjoncteur CMS</span>
+                        </div>
+                        <div class="card-body">
+                          <button type="button" class="btn btn-success">On</button>
+                          <button type="button" class="btn btn-danger">Off</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-12">
+                      <div class="card card-chart">
+                        <div class="card-header card-header-primary">
+                          <span class="text-heading">Button for Disjoncteur Vague</span>
+                        </div>
+                        <div class="card-body">
+                          <button type="button" class="btn btn-success">On</button>
+                          <button type="button" class="btn btn-danger">Off</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-12">
+                      <div class="card card-chart">
+                        <div class="card-header card-header-primary">
+                          <span class="text-heading">Button for Disjoncteur Eau</span>
+                        </div>
+                        <div class="card-body">
+                          <button type="button" class="btn btn-success">On</button>
+                          <button type="button" class="btn btn-danger">Off</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-12">
+                      <div class="card card-chart">
+                        <div class="card-header card-header-primary">
+                          <span class="text-heading">Button for Disjoncteur Integration</span>
+                        </div>
+                        <div class="card-body">
+                          <button type="button" class="btn btn-success">On</button>
+                          <button type="button" class="btn btn-danger">Off</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               </div>
+              </div>
+      </div>
+
+
+
+
+
+  <!-- <script src="./js/mdb.js"></script> -->
+
